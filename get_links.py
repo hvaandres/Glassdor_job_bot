@@ -15,6 +15,23 @@ import re
 
 import time # to sleep
 
+#Login Information
+
+Login = {
+
+    "user" : {
+    "userEmail" : "Insert Your Email"
+    },
+
+    "password" : {
+        "userPassword" : "Insert Your Password"
+    }
+}
+
+OriginalURL = 'https://www.glassdoor.com/index.htm'
+
+URLSignIn = 'https://www.glassdoor.com/profile/login_input.htm?userOriginHook=HEADER_SIGNIN_LINK'
+
 # fill this in with your job preferences!
 PREFERENCES = {
     "position_title": "Software Engineer",
@@ -23,7 +40,23 @@ PREFERENCES = {
 
 # helper method to give user time to log into glassdoor
 def login(driver):
-    driver.get('https://www.glassdoor.com/index.htm')
+    driver.get(OriginalURL)
+
+    time.sleep(5)
+
+    driver.get(URLSignIn)
+
+    time.sleep(5)
+
+    useremail = driver.find_element_by_id("userEmail")
+    useremail.send_keys(Login["user"]["userEmail"])
+    time.sleep(5)
+    userpassword = driver.find_element_by_id("userPassword")
+    userpassword.send_keys(Login["password"]["userPassword"])
+
+    driver.find_element_by_xpath("//*[@id='InlineLoginModule']/div/div/div/div[1]/div[3]/form/div[3]/div[1]/button").click()
+
+    print(useremail)
 
     # keep waiting for user to log-in until the URL changes to user page
     while True:
@@ -181,4 +214,4 @@ def getURLs():
     return allLinks
 
 # for testing purpose
-getURLs()
+#getURLs()

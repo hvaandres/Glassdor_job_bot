@@ -6,13 +6,13 @@ import time # to sleep
 import get_links
 
 # sample application links if we don't want to run get_links.py
-URL_l2 = 'https://jobs.lever.co/instructure/6de45e7a-2942-4ef6-8eaa-e67842a8dce8/apply'
-URL_l3 = 'https://careers.twitter.com/en/work-for-twitter/202009/9af6c85d-0883-457a-9795-2fd909658762/af6f9ade-2dc3-40e7-a4b5-63b80d384ffb.html/software-engineer-home-timeline.html'
-URL_l4 = 'https://jobs.lever.co/lever/f79520a7-6243-4cad-a240-8db2567e2725'
-URL_l6 = ''
-URL_l8 = ''
-URL_l9 = ''
-URL_g1 = ''
+URL_l2 = 'https://jobs.lever.co/pmdsoft/37bfda2f-bd89-45c8-a5f6-1a2d1f709f45?lever-source=Glassdoor'
+URL_l3 = 'https://jobs.lever.co/pmdsoft/37bfda2f-bd89-45c8-a5f6-1a2d1f709f45?lever-source=Glassdoor'
+URL_l4 = 'https://jobs.lever.co/afterpaytouch/de68a0d5-a2a2-49ad-b4fc-85d3c3564e9a'
+URL_l6 = 'https://jobs.lever.co/prosper/6a6ab333-a67b-4c56-a10f-7e033459efdd?lever-source=Indeed'
+URL_l8 = 'https://jobs.lever.co/prosper/6a6ab333-a67b-4c56-a10f-7e033459efdd?lever-source=Indeed'
+URL_l9 = 'https://jobs.lever.co/prosper/6a6ab333-a67b-4c56-a10f-7e033459efdd?lever-source=Indeed'
+URL_g1 = 'https://jobs.lever.co/indiegogo.com/f4f9a53e-6dcb-4010-993e-d823489f6691/apply?lever-source=Glassdoor'
 
 
 # there's probably a prettier way to do all of this
@@ -166,6 +166,11 @@ if __name__ == '__main__':
 
     # call get_links to automatically scrape job listings from glassdoor
     aggregatedURLs = get_links.getURLs()
+
+    # IF YOU JUST WANT TO GO THROUGH THE LIST FROM THIS FILE, YOU WILL HAVE TO CALL URLS INSTEAD OF get_links.getURLs()
+
+    # aggregatedURLs = URLS
+
     print(f'Job Listings: {aggregatedURLs}')
     print('\n')
 
